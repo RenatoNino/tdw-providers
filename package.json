@@ -32,6 +32,7 @@
     "class-validator": "^0.14.0",
     "mysql2": "^3.4.0",
     "nestjs-sharp": "^1.1.0",
+    "pg": "^8.11.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
