@@ -40,6 +40,11 @@ export class ProviderController {
     return await this.tutorialService.findOne(id);
   }
 
+  @Get('/ruc/:ruc')
+  async findForRuc(@Param('ruc') ruc: string) {
+    return await this.tutorialService.findForRuc(ruc);
+  }
+
   @Patch(':id')
   @UseInterceptors(FileInterceptor('image'))
   async update(

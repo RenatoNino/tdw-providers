@@ -59,7 +59,8 @@ export class ProviderService {
       );
     }
 
-    provider = await this.providersRepository.save(createTutorialDto);
+    const newProvider = this.providersRepository.create(createTutorialDto);
+    provider = await this.providersRepository.save(newProvider);
 
     if (file != undefined) {
       await this.providersRepository.update(
@@ -75,7 +76,9 @@ export class ProviderService {
   }
 
   async findAll() {
-    return await this.providersRepository.find();
+    return await this.providersRepository.find({
+      order: { id: { direction: 'ASC' } },
+    });
   }
 
   async findOne(id: number): Promise<Provider> {
@@ -87,6 +90,11 @@ export class ProviderService {
       );
     }
     return provider;
+  }
+
+  async findForRuc(ruc: string): Promise<Provider[]> {
+    const providers = await this.providersRepository.find({ where: { ruc } });
+    return providers;
   }
 
   async update(

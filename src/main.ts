@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const AllowedHeaders = `X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe, x-access-token, Authorization`;
 
-  const Methods = `GET,PUT,POST,DELETE,UPDATE,OPTIONS`;
+  const Methods = `GET,PUT,POST,DELETE,UPDATE,OPTIONS,PATCH`;
 
   app
     .useGlobalPipes(new ValidationPipe())
